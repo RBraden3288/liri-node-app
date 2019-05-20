@@ -32,14 +32,6 @@ var queryURL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_i
 
 var song = process.argv[3];
 
-// spotify.search({ type: 'track', query: song }, function(err, data) {
-//   if (err) {
-//     return console.log('Error occurred: ' + err);
-//   }
- 
-// console.log(data); 
-// });
-
 spotify
   .search({ type: 'track', query: song })
   .then(function(response) {
@@ -90,5 +82,14 @@ axios.get("http://www.omdbapi.com/?t=" + movieSearch + "&y=&plot=short&apikey=tr
   }
 );
 
-                // === DO WHAT IT SAYS === //
-                //command: `do-what-it-says`//
+// === DO WHAT IT SAYS === //
+//command: `do-what-it-says`//
+
+var fs = require("fs");
+
+fs.readFile("random.txt", "utf-8", function (error, data){
+  if (error) {
+    return console.log(error);
+  }
+  console.log("\n" + divider, data)
+})
